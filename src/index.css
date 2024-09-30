@@ -6,7 +6,9 @@
 
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Trebuchet MS",
+    Helvetica,
+    sans-serif;
   font-optical-sizing: none;
   font-weight: 400;
   font-style: normal;
@@ -15,6 +17,8 @@ body {
   letter-spacing: 2px;
 
   scrollbar-color: transparent !important;
+  /*scroll de baixo*/
   overflow-x: hidden !important;
+  /*scroll do lado*/
   overflow-y: auto !important;
 }
