@@ -1,5 +1,8 @@
+import React from 'react'
+
 function App() {
-  return <div className="App">Movies_app</div>;
+  return <div className="App">
+  </div>;
 }
 
 export default App;
