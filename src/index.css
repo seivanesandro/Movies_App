@@ -1,24 +1,24 @@
 *,
 ::after,
 ::before {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: "Trebuchet MS",
-    Helvetica,
-    sans-serif;
-  font-optical-sizing: none;
-  font-weight: 400;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  letter-spacing: 2px;
+    margin: 0;
+    font-family: 'Trebuchet MS', Helvetica,
+        sans-serif;
+    font-optical-sizing: none;
+    font-weight: 400;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 2px;
+    background: rgb(61, 61, 61);
 
-  scrollbar-color: transparent !important;
-  /*scroll de baixo*/
-  overflow-x: hidden !important;
-  /*scroll do lado*/
-  overflow-y: auto !important;
+    scrollbar-color: transparent !important;
+    /*scroll de baixo*/
+    overflow-x: hidden !important;
+    /*scroll do lado*/
+    overflow-y: auto !important;
 }

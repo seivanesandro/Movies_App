@@ -1,15 +1,22 @@
-import React from 'react'
+import React from 'react';
+import Movies from './pages/Movies';
 
-//const apiKey = process.env.REACT_APP_API_KEY;
-//const apiId = process.env.REACT_APP_API_ID;
-//const apiUrl = process.env.REACT_APP_API_URL;
+import styled from 'styled-components';
+
+const MovieApp = styled.div`
+    &.movie-App > .row {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+`;
 
 const App = () => {
-  return (
-    <div className="App">
-      <h1>My Movies App</h1>
-    </div>
-  )
-}
+    return (
+        <MovieApp className="movie-app">
+            {/*add react router dom */}
+            <Movies />
+        </MovieApp>
+    );
+};
 
 export default App;
