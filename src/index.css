@@ -22,3 +22,51 @@ body {
     /*scroll do lado*/
     overflow-y: auto !important;
 }
+
+
+.movie-app > .row {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    flex-wrap: nowrap;
+}
+
+.row>* {
+    flex-shrink: 0;
+    width: unset;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+    margin-top: var(--bs-gutter-y);
+}
+
+.image-container {
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.image-container:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.image-container:hover .overlay {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    transition: 0.5s ease;
+    opacity: 0;
+    bottom: 0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.favourit-component{
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}

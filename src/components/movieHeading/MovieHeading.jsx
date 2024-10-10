@@ -7,6 +7,7 @@ const MovieTitle = styled.h1`
     color: #fff;
     font-size: 2.5rem;
     font-weight: 600;
+    margin-left: 3.5rem;
 
     @media only screen and (${devices.fourk}) {
     }

@@ -32,25 +32,73 @@ const Movies = () => {
             imdbID: 'tt6342474',
             Type: 'series',
             Poster: 'https://m.media-amazon.com/images/M/MV5BYjM0MDRkYzctMTNhMS00ODYwLTgwMWItZDYxNDlhOGY1YjRlXkEyXkFqcGdeQXVyMzExMzk5MTQ@._V1_SX300.jpg'
+        },
+        {
+            Title: 'Naruto',
+            Year: '2002–2007',
+            imdbID: 'tt0409591',
+            Type: 'series',
+            Poster: 'https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg'
+        },
+        {
+            Title: 'Boruto: Naruto Next Generations',
+            Year: '2017–2023',
+            imdbID: 'tt6342474',
+            Type: 'series',
+            Poster: 'https://m.media-amazon.com/images/M/MV5BYjM0MDRkYzctMTNhMS00ODYwLTgwMWItZDYxNDlhOGY1YjRlXkEyXkFqcGdeQXVyMzExMzk5MTQ@._V1_SX300.jpg'
+        },
+        {
+            Title: 'Naruto',
+            Year: '2002–2007',
+            imdbID: 'tt0409591',
+            Type: 'series',
+            Poster: 'https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg'
+        },
+        {
+            Title: 'Boruto: Naruto Next Generations',
+            Year: '2017–2023',
+            imdbID: 'tt6342474',
+            Type: 'series',
+            Poster: 'https://m.media-amazon.com/images/M/MV5BYjM0MDRkYzctMTNhMS00ODYwLTgwMWItZDYxNDlhOGY1YjRlXkEyXkFqcGdeQXVyMzExMzk5MTQ@._V1_SX300.jpg'
+        },
+        {
+            Title: 'Naruto',
+            Year: '2002–2007',
+            imdbID: 'tt0409591',
+            Type: 'series',
+            Poster: 'https://m.media-amazon.com/images/M/MV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY@._V1_SX300.jpg'
+        },
+        {
+            Title: 'Boruto: Naruto Next Generations',
+            Year: '2017–2023',
+            imdbID: 'tt6342474',
+            Type: 'series',
+            Poster: 'https://m.media-amazon.com/images/M/MV5BYjM0MDRkYzctMTNhMS00ODYwLTgwMWItZDYxNDlhOGY1YjRlXkEyXkFqcGdeQXVyMzExMzk5MTQ@._V1_SX300.jpg'
         }
     ]);
 
     return (
         <>
             {/*list movies */}
-            <div className="row d-flex align-items-center mb-4 mx-auto">
+            <div className="mt-4 mb-4">
                 <NavBar placeholdertext="search movies" />
-                <MovieHeading title="movies" />
+                <MovieHeading title="Movies" />
             </div>
-            <div className="d-flex flex-row justify-content-start align-items-center">
-                <MovieList movies={movies} />
+            <div className="row gap-5 my-5 mb-5">
+                <MovieList
+                    movies={movies}
+                    favouritComponent="add to favorits"
+                />
             </div>
             {/*favorits movies */}
-            <div className="row d-flex align-items-center mb-4 mx-auto">
-                <MovieHeading title="favorite movies" />
+            <div className="row mt-4 mb-4">
+                <MovieHeading title="Favorite movies" />
             </div>
-            <div className="d-flex flex-row justify-content-start align-items-center">
-                <MovieList movies={movies} />
+            <div className="row">
+                <MovieList
+                    movies={movies}
+                    favouritComponent="remove from favourits"
+                />
             </div>
         </>
     );
