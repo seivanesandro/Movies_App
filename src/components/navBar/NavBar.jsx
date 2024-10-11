@@ -1,4 +1,4 @@
-import Button from 'react-bootstrap/Button';
+//import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
@@ -7,24 +7,29 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function OffcanvasExample({
     value,
-    setsearchvalue,
+    setSearchValue,
     placeholdertext
 }) {
+
+    const HandleClickSearch = (e) => {
+        setSearchValue(e.target.value);
+    }
     return (
         <>
             {['xl'].map(expand => (
                 <Navbar
                     key={expand}
                     expand={expand}
-                    className="py-3 mb-4"
+                    className="py-3 px-5 mb-4"
                     data-bs-theme="dark"
                     style={{
-                        background: '#000000'
+                        background: '#000000',
+                        boxShadow: '0 0 2px #ccc'
                     }}
                 >
                     <Container fluid>
                         <Navbar.Brand href="#">
-                            Movies List
+                            Favourite Movies
                         </Navbar.Brand>
                         <Navbar.Toggle
                             style={{
@@ -51,7 +56,8 @@ function OffcanvasExample({
                                 <Offcanvas.Title
                                     id={`offcanvasNavbarLabel-expand-${expand}`}
                                 >
-                                    Movies List
+                                    Favourite
+                                    Movies
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
                             <Offcanvas.Body>
@@ -74,17 +80,10 @@ function OffcanvasExample({
                                         value={
                                             value
                                         }
-                                        onChange={e =>
-                                            setsearchvalue(
-                                                e
-                                                    .target
-                                                    .value
-                                            )
+                                        onChange={
+                                            HandleClickSearch
                                         }
                                     />
-                                    <Button variant="outline-success">
-                                        Search
-                                    </Button>
                                 </Form>
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>

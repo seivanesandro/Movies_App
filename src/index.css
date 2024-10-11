@@ -2,6 +2,8 @@
 ::after,
 ::before {
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: black #ccc;
 }
 
 body {
@@ -14,7 +16,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 2px;
-    background: rgb(61, 61, 61);
+    /* background: rgb(61, 61, 61); */
+    background: #141414;
 
     scrollbar-color: transparent !important;
     /*scroll de baixo*/
@@ -34,6 +37,8 @@ body {
     flex-shrink: 0;
     width: unset;
     max-width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
     padding-right: calc(var(--bs-gutter-x)* .5);
     padding-left: calc(var(--bs-gutter-x)* .5);
     margin-top: var(--bs-gutter-y);
@@ -42,11 +47,13 @@ body {
 .image-container {
     position: relative;
     transition: transform 0.2s;
+    align-content: center !important;
 }
 
 .image-container:hover {
     cursor: pointer;
     transform: scale(1.1);
+   
 }
 
 .image-container:hover .overlay {
@@ -60,13 +67,11 @@ body {
     transition: 0.5s ease;
     opacity: 0;
     bottom: 0;
-    font-size: 20px;
-    padding: 20px;
+    left: 0px;
+    font-size: 1.5rem;
+    padding: 1.8rem 0;
     text-align: center;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 
-.favourit-component{
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 500;
-}
