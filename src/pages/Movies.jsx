@@ -45,6 +45,7 @@ const Movies = () => {
         async searchValue => {
             try {
                 const url = `${apiUrl}?apikey=${apiKey}&s=${searchValue}`;
+                
                 const api = await fetch(url);
 
                 if (!api.ok) {
