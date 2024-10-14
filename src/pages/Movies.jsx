@@ -89,7 +89,7 @@ const Movies = () => {
                     }
                 />
             </div>
-            <div className="row mt-4 mb-4">
+            <div className=" mt-4 mb-4">
                 <MovieHeading title="Movies" />
             </div>
             {searchValue &&
@@ -120,7 +120,7 @@ const Movies = () => {
                 />
             </div>
             {/*favorits movies */}
-            <div className="row mt-4 mb-4">
+            <div className=" mt-4 mb-4">
                 <MovieHeading title="Favorite movies" />
             </div>
             <div className="row gap-5 my-5 mb-5">

@@ -1,7 +1,7 @@
 //import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
-import Nav from 'react-bootstrap/Nav';
+//import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
@@ -16,18 +16,21 @@ function OffcanvasExample({
     }
     return (
         <>
-            {['xl'].map(expand => (
+            {['sm'].map(expand => (
                 <Navbar
                     key={expand}
                     expand={expand}
-                    className="py-3 px-5 mb-4"
+                    className="py-3 mb-4"
                     data-bs-theme="dark"
                     style={{
                         background: '#000000',
                         boxShadow: '0 0 2px #ccc'
                     }}
                 >
-                    <Container fluid>
+                    <Container
+                        fluid
+                        className="container-fuild-witdh"
+                    >
                         <Navbar.Brand href="#">
                             Favourite Movies
                         </Navbar.Brand>
@@ -60,22 +63,15 @@ function OffcanvasExample({
                                     Movies
                                 </Offcanvas.Title>
                             </Offcanvas.Header>
-                            <Offcanvas.Body>
-                                <Nav className="justify-content-end flex-grow-1 pe-3">
-                                    <Nav.Link href="#action1">
-                                        Movies
-                                    </Nav.Link>
-                                    <Nav.Link href="#action2">
-                                        Series
-                                    </Nav.Link>
-                                </Nav>
-                                <Form className="d-flex">
+                            <Offcanvas.Body className="justify-content-center">
+                                <Form className="d-flex justify-content-center">
                                     <Form.Control
+                                        className="input-search-style"
+                                        data-bs-theme="light"
                                         type="search"
                                         placeholder={
                                             placeholdertext
                                         }
-                                        className="me-2"
                                         aria-label="Search"
                                         value={
                                             value
@@ -85,6 +81,14 @@ function OffcanvasExample({
                                         }
                                     />
                                 </Form>
+                                {/* <Nav className="justify-content-end flex-grow-1 pe-3">
+                                    <Nav.Link href="#action1">
+                                        Movies
+                                    </Nav.Link>
+                                    <Nav.Link href="#action2">
+                                        Series
+                                    </Nav.Link>
+                                </Nav> */}
                             </Offcanvas.Body>
                         </Navbar.Offcanvas>
                     </Container>

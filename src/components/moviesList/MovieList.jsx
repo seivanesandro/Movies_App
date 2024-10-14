@@ -44,25 +44,21 @@ const MovieList = ({movies, favouritComponent}) => {
                                 alt="norefer"
                                 className="img-style"
                             />
-                            <div className="overlay d-flex align-items-center justify-content-center">
-                                {movie.Poster !==
-                                'N/A' ? (
+
+                            {movie.Poster !==
+                            'N/A' ? (
+                                <div className="overlay d-flex align-items-center justify-content-center">
                                     <FavouritComponent
                                         favouritComponent={
                                             favouritComponent
                                         }
                                     />
-                                ) : (
-                                    <FavouritComponent
-                                        disabled={
-                                            true
-                                        }
-                                        favouritComponent={
-                                            favouritComponent
-                                        }
-                                    />
-                                )}
-                            </div>
+                                </div>
+                            ) : (
+                                <div className="d-flex align-items-center justify-content-center">
+
+                                </div>
+                            )}
                         </div>
                     );
                 })}
