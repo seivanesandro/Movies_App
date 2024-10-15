@@ -8,7 +8,6 @@ const MovieTitle = styled.h1`
     font-size: 2.5rem;
     font-weight: 600;
     text-align: center;
-    
 
     @media only screen and (${devices.tablet}) {
         text-align: center;

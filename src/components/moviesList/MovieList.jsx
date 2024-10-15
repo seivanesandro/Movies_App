@@ -1,7 +1,9 @@
 import React from 'react';
-import FavouritComponent from '../favouritComponent/FavouritComponent'
+import FavouritComponent from '../favouritComponent/FavouritComponent';
 //import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components';
+import styled, {
+    keyframes
+} from 'styled-components';
 import noimage from '../../assets/noimage.jpg';
 
 const Show = keyframes`
@@ -24,44 +26,48 @@ const StyleImg = styled.img`
     animation: ${Show} 2.5s linear;
 `;
 
-const MovieList = ({movies, favouritComponent}) => {
-
+const MovieList = ({
+    movies,
+    favouritComponent
+}) => {
     return (
         <>
             {movies.map(movie => {
-                    return (
-                        <div
-                            key={movie.imdbID}
-                            className="image-container d-flex justify-content-start my-3 mx-5"
-                        >
-                            <StyleImg
-                                src={
-                                    movie.Poster !==
-                                    'N/A'
-                                        ? movie.Poster
-                                        : noimage
-                                }
-                                alt="norefer"
-                                className="img-style"
-                            />
+                return (
+                    <div
+                        key={movie.imdbID}
+                        className={
+                            movie.Poster !== 'N/A'
+                                ? 'image-container d-flex justify-content-start my-3 mx-5'
+                                : 'no-image-container d-flex justify-content-start my-3 mx-5'
+                        }
+                    >
+                        <StyleImg
+                            src={
+                                movie.Poster !==
+                                'N/A'
+                                    ? movie.Poster
+                                    : noimage
+                            }
+                            alt="norefer"
+                            className="img-style"
+                        />
 
-                            {movie.Poster !==
-                            'N/A' ? (
-                                <div className="overlay d-flex align-items-center justify-content-center">
-                                    <FavouritComponent
-                                        favouritComponent={
-                                            favouritComponent
-                                        }
-                                    />
-                                </div>
-                            ) : (
-                                <div className="d-flex align-items-center justify-content-center">
-
-                                </div>
-                            )}
-                        </div>
-                    );
-                })}
+                        {movie.Poster !==
+                        'N/A' ? (
+                            <div className="overlay d-flex align-items-center justify-content-center">
+                                <FavouritComponent
+                                    favouritComponent={
+                                        favouritComponent
+                                    }
+                                />
+                            </div>
+                        ) : (
+                            <div className="d-flex align-items-center justify-content-center"></div>
+                        )}
+                    </div>
+                );
+            })}
         </>
     );
 };

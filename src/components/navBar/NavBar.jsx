@@ -6,14 +6,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function OffcanvasExample({
-    value,
+    searchValue,
     setSearchValue,
     placeholdertext
 }) {
-
-    const HandleClickSearch = (e) => {
+    const HandleClickSearch = e => {
         setSearchValue(e.target.value);
-    }
+    };
     return (
         <>
             {['sm'].map(expand => (
@@ -22,6 +21,7 @@ function OffcanvasExample({
                     expand={expand}
                     className="py-3 mb-4"
                     data-bs-theme="dark"
+                    title="reset bar search"
                     style={{
                         background: '#000000',
                         boxShadow: '0 0 2px #ccc'
@@ -31,7 +31,10 @@ function OffcanvasExample({
                         fluid
                         className="container-fuild-witdh"
                     >
-                        <Navbar.Brand href="#">
+                        <Navbar.Brand
+                            className="link-to-reset"
+                            href="/"
+                        >
                             Favourite Movies
                         </Navbar.Brand>
                         <Navbar.Toggle
@@ -66,15 +69,17 @@ function OffcanvasExample({
                             <Offcanvas.Body className="justify-content-center">
                                 <Form className="d-flex justify-content-center">
                                     <Form.Control
+                                        id="input-search-style"
                                         className="input-search-style"
                                         data-bs-theme="light"
                                         type="search"
+                                        required
                                         placeholder={
                                             placeholdertext
                                         }
                                         aria-label="Search"
                                         value={
-                                            value
+                                            searchValue
                                         }
                                         onChange={
                                             HandleClickSearch

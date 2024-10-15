@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+    useEffect,
+    useState
+} from 'react';
 //import PropTypes from 'prop-types'
 import styled from 'styled-components';
 
 import NavBar from '../components/navBar/NavBar';
 import MovieHeading from '../components/movieHeading/MovieHeading';
 import MovieList from '../components/moviesList/MovieList';
-import Loading from '../components/load/Loading'
+import Loading from '../components/load/Loading';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -19,12 +22,13 @@ const ContainerLoading = styled.div`
 `;
 
 const Movies = () => {
-    const [movies, setMovies] = useState([  ]);
-    const [ searchValue, setSearchValue ] = useState('');
+    const [movies, setMovies] = useState([]);
+    const [searchValue, setSearchValue] =
+        useState('');
 
-    const [ error, setError ] = useState(null)
+    const [error, setError] = useState(null);
 
-/*     const getMoviesRequest =
+    /*     const getMoviesRequest =
         async searchValue => {
             const url = `${apiUrl}?apikey=${apiKey}&s=${searchValue}`;
             const api = await fetch(
@@ -40,12 +44,12 @@ const Movies = () => {
     useEffect(() => {
         getMoviesRequest(searchValue);
     }, [searchValue]); */
-    
+
     const getMoviesRequest =
         async searchValue => {
             try {
                 const url = `${apiUrl}?apikey=${apiKey}&s=${searchValue}`;
-                
+
                 const api = await fetch(url);
 
                 if (!api.ok) {
@@ -59,7 +63,7 @@ const Movies = () => {
                 if (data.Search) {
                     setMovies(data.Search);
                 } else {
-                   setError(
+                    setError(
                         'No movies found for the search term.'
                     );
                 }
@@ -68,21 +72,19 @@ const Movies = () => {
                     'Error fetching movies:',
                     error.message
                 );
-
-            } 
+            }
         };
 
-        useEffect(() => {
-            getMoviesRequest(searchValue);
-        }, [searchValue]);
-
+    useEffect(() => {
+        getMoviesRequest(searchValue);
+    }, [searchValue]);
 
     return (
         <>
             {/*list movies */}
             <div className="mt-4 mb-4">
                 <NavBar
-                    placeholdertext="search movies"
+                    placeholdertext="search movies..."
                     searchValue={searchValue}
                     setSearchValue={
                         setSearchValue
@@ -116,7 +118,10 @@ const Movies = () => {
             <div className="row gap-5 my-5 mb-5">
                 <MovieList
                     movies={movies}
-                    favouritComponent="add favorit"
+                    favouritComponent="Add Favorit"
+                    onclick={console.log(
+                        'added from favorit'
+                    )}
                 />
             </div>
             {/*favorits movies */}
@@ -126,7 +131,10 @@ const Movies = () => {
             <div className="row gap-5 my-5 mb-5">
                 <MovieList
                     movies={movies}
-                    favouritComponent="remove favourit"
+                    favouritComponent="Remove Favorit"
+                    onclick={console.log(
+                        'removed from favorit'
+                    )}
                 />
             </div>
         </>
