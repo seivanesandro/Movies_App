@@ -52,7 +52,7 @@ const Movies = () => {
     const getMoviesRequest =
         async searchValue => {
             try {
-                const url = `${apiUrl}?apikey=${apiKey}&s=${searchValue}`;
+                const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchValue}`;
 
                 const api = await fetch(url);
 
