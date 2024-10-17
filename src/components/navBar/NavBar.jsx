@@ -24,7 +24,7 @@ function OffcanvasExample({
                     title="reset bar search"
                     style={{
                         background: '#000000',
-                        boxShadow: '0 0 2px #ccc'
+                        borderBottom: '1px solid #ccc'
                     }}
                 >
                     <Container

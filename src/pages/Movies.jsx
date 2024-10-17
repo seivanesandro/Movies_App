@@ -9,6 +9,8 @@ import NavBar from '../components/navBar/NavBar';
 import MovieHeading from '../components/movieHeading/MovieHeading';
 import MovieList from '../components/moviesList/MovieList';
 import Loading from '../components/load/Loading';
+import AddFavourite from '../components/favouritComponent/AddFavorit';
+import RemoveFavourites from '../components/favouritComponent/RemoveFavorite';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const apiUrl = process.env.REACT_APP_API_URL;
@@ -23,8 +25,10 @@ const ContainerLoading = styled.div`
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
-    const [searchValue, setSearchValue] =
-        useState('');
+    const [searchValue, setSearchValue] = useState('');
+    const [favorites, setFavorites] = useState(
+        []
+    );
 
     const [error, setError] = useState(null);
 
@@ -79,6 +83,45 @@ const Movies = () => {
         getMoviesRequest(searchValue);
     }, [searchValue]);
 
+    //add/remove favorit logic
+
+useEffect(() => {
+    const movieFavorites = JSON.parse(
+        localStorage.getItem(
+            'react-movie-app-favourites'
+        )
+    );
+
+    if (movieFavorites) {
+        setFavorites(movieFavorites);
+    }
+}, []);
+const saveToLocalStorage = items => {
+    localStorage.setItem(
+        'react-movie-app-favourites',
+        JSON.stringify(items)
+    );
+};
+
+const addFavoriteMovie = movie => {
+    const newFavoriteList = [
+        ...favorites,
+        movie
+    ];
+    setFavorites(newFavoriteList);
+    saveToLocalStorage(newFavoriteList);
+};
+
+const removeFavoriteMovie = movie => {
+    const newFavoriteList = favorites.filter(
+        favorite =>
+            favorite.imdbID !== movie.imdbID
+    );
+
+    setFavorites(newFavoriteList);
+    saveToLocalStorage(newFavoriteList);
+};
+
     return (
         <>
             {/*list movies */}
@@ -115,26 +158,30 @@ const Movies = () => {
                     </ContainerLoading>
                 )}
 
-            <div className="row gap-5 my-5 mb-5">
+            <div className="row gap-1 my-4 mb-4">
                 <MovieList
                     movies={movies}
-                    favouritComponent="Add Favorit"
-                    onclick={console.log(
-                        'added from favorit'
-                    )}
+                    handleFavoritesClick={
+                        addFavoriteMovie
+                    }
+                    favoritComponent={
+                        <AddFavourite />
+                    }
                 />
             </div>
             {/*favorits movies */}
             <div className=" mt-4 mb-4">
                 <MovieHeading title="Favorite movies" />
             </div>
-            <div className="row gap-5 my-5 mb-5">
+            <div className="row gap-3 my-4 mb-4">
                 <MovieList
-                    movies={movies}
-                    favouritComponent="Remove Favorit"
-                    onclick={console.log(
-                        'removed from favorit'
-                    )}
+                    movies={favorites}
+                    handleFavoritesClick={
+                        removeFavoriteMovie
+                    }
+                    favoritComponent={
+                        <RemoveFavourites />
+                    }
                 />
             </div>
         </>

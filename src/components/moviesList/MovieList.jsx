@@ -1,6 +1,6 @@
 import React from 'react';
-import FavouritComponent from '../favouritComponent/FavouritComponent';
-//import PropTypes from 'prop-types'
+import FavoritComponent from '../favouritComponent/FavoritComponent';
+import PropTypes from 'prop-types'
 import styled, {
     keyframes
 } from 'styled-components';
@@ -26,20 +26,17 @@ const StyleImg = styled.img`
     animation: ${Show} 2.5s linear;
 `;
 
-const MovieList = ({
-    movies,
-    favouritComponent
-}) => {
+const MovieList = (props) => {
     return (
         <>
-            {movies.map(movie => {
+            {props.movies.map(movie => {
                 return (
                     <div
                         key={movie.imdbID}
                         className={
                             movie.Poster !== 'N/A'
-                                ? 'image-container d-flex justify-content-start my-3 mx-5'
-                                : 'no-image-container d-flex justify-content-start my-3 mx-5'
+                                ? 'image-container d-flex justify-content-start my-3'
+                                : 'no-image-container d-flex justify-content-start my-3'
                         }
                     >
                         <StyleImg
@@ -55,12 +52,15 @@ const MovieList = ({
 
                         {movie.Poster !==
                         'N/A' ? (
-                            <div className="overlay d-flex align-items-center justify-content-center">
-                                <FavouritComponent
-                                    favouritComponent={
-                                        favouritComponent
-                                    }
-                                />
+                            <div
+                                className="overlay d-flex align-items-center justify-content-center"
+                                onClick={() =>
+                                    props.handleFavoritesClick(
+                                        movie
+                                    )
+                                }
+                            >
+                                <FavoritComponent  favoritComponent={props.favoritComponent}/>
                             </div>
                         ) : (
                             <div className="d-flex align-items-center justify-content-center"></div>
@@ -72,6 +72,8 @@ const MovieList = ({
     );
 };
 
-MovieList.propTypes = {};
+MovieList.propTypes = {
+    handleFavoritesClick: PropTypes.func,
+};
 
 export default MovieList;

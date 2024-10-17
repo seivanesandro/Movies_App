@@ -7,7 +7,7 @@
 }
 
 body {
-    margin: 0;
+    margin: none;
     font-family: 'Trebuchet MS', Helvetica,
         sans-serif;
     font-optical-sizing: none;
@@ -17,13 +17,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
     letter-spacing: 2px;
     /* background: rgb(61, 61, 61); */
-    background: #141414;
+        background: rgb(0, 0, 0);
 
     scrollbar-color: transparent !important;
     /*scroll de baixo*/
     overflow-x: hidden !important;
     /*scroll do lado*/
     overflow-y: auto !important;
+}
+
+.movie-app{
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-app > .row {
@@ -114,21 +119,36 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+    .row>* {
+            max-width: 60%;
+        }
     .input-search-style {
         width: 28rem !important;
     }
 }
 
 @media only screen and (max-width: 430px) {
+    .row>* {
+            max-width: 50%;
+        }
 }
 
 @media only screen and (max-width: 425px) {
+    .row>* {
+            max-width: 50%;
+        }
 }
 
 @media only screen and (max-width: 375px) {
+    .row>* {
+            max-width: 50%;
+        }
 }
 
 @media only screen and (max-width: 320px) {
+    .row>* {
+            max-width: 50%;
+        }
     .container-fuild-witdh {
         width: 100%;
     }
