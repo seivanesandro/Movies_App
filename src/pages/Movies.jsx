@@ -13,7 +13,7 @@ import AddFavourite from '../components/favouritComponent/AddFavorit';
 import RemoveFavourites from '../components/favouritComponent/RemoveFavorite';
 
 const apiKey = process.env.REACT_APP_API_KEY;
-const apiUrl = process.env.REACT_APP_API_URL;
+//const apiUrl = process.env.REACT_APP_API_URL;
 
 const ContainerLoading = styled.div`
     display: flex;
@@ -25,7 +25,8 @@ const ContainerLoading = styled.div`
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
-    const [searchValue, setSearchValue] = useState('');
+    const [searchValue, setSearchValue] =
+        useState('');
     const [favorites, setFavorites] = useState(
         []
     );
@@ -85,42 +86,42 @@ const Movies = () => {
 
     //add/remove favorit logic
 
-useEffect(() => {
-    const movieFavorites = JSON.parse(
-        localStorage.getItem(
-            'react-movie-app-favourites'
-        )
-    );
+    useEffect(() => {
+        const movieFavorites = JSON.parse(
+            localStorage.getItem(
+                'react-movie-app-favourites'
+            )
+        );
 
-    if (movieFavorites) {
-        setFavorites(movieFavorites);
-    }
-}, []);
-const saveToLocalStorage = items => {
-    localStorage.setItem(
-        'react-movie-app-favourites',
-        JSON.stringify(items)
-    );
-};
+        if (movieFavorites) {
+            setFavorites(movieFavorites);
+        }
+    }, []);
+    const saveToLocalStorage = items => {
+        localStorage.setItem(
+            'react-movie-app-favourites',
+            JSON.stringify(items)
+        );
+    };
 
-const addFavoriteMovie = movie => {
-    const newFavoriteList = [
-        ...favorites,
-        movie
-    ];
-    setFavorites(newFavoriteList);
-    saveToLocalStorage(newFavoriteList);
-};
+    const addFavoriteMovie = movie => {
+        const newFavoriteList = [
+            ...favorites,
+            movie
+        ];
+        setFavorites(newFavoriteList);
+        saveToLocalStorage(newFavoriteList);
+    };
 
-const removeFavoriteMovie = movie => {
-    const newFavoriteList = favorites.filter(
-        favorite =>
-            favorite.imdbID !== movie.imdbID
-    );
+    const removeFavoriteMovie = movie => {
+        const newFavoriteList = favorites.filter(
+            favorite =>
+                favorite.imdbID !== movie.imdbID
+        );
 
-    setFavorites(newFavoriteList);
-    saveToLocalStorage(newFavoriteList);
-};
+        setFavorites(newFavoriteList);
+        saveToLocalStorage(newFavoriteList);
+    };
 
     return (
         <>

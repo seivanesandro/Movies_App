@@ -24,7 +24,8 @@ function OffcanvasExample({
                     title="reset bar search"
                     style={{
                         background: '#000000',
-                        borderBottom: '1px solid #ccc'
+                        borderBottom:
+                            '1px solid #ccc'
                     }}
                 >
                     <Container
@@ -33,7 +34,7 @@ function OffcanvasExample({
                     >
                         <Navbar.Brand
                             className="link-to-reset"
-                            href="/"
+                            to="/"
                         >
                             Favourite Movies
                         </Navbar.Brand>

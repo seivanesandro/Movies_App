@@ -1,6 +1,6 @@
 import React from 'react';
 import FavoritComponent from '../favouritComponent/FavoritComponent';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import styled, {
     keyframes
 } from 'styled-components';
@@ -26,7 +26,7 @@ const StyleImg = styled.img`
     animation: ${Show} 2.5s linear;
 `;
 
-const MovieList = (props) => {
+const MovieList = props => {
     return (
         <>
             {props.movies.map(movie => {
@@ -60,7 +60,11 @@ const MovieList = (props) => {
                                     )
                                 }
                             >
-                                <FavoritComponent  favoritComponent={props.favoritComponent}/>
+                                <FavoritComponent
+                                    favoritComponent={
+                                        props.favoritComponent
+                                    }
+                                />
                             </div>
                         ) : (
                             <div className="d-flex align-items-center justify-content-center"></div>
@@ -73,7 +77,7 @@ const MovieList = (props) => {
 };
 
 MovieList.propTypes = {
-    handleFavoritesClick: PropTypes.func,
+    handleFavoritesClick: PropTypes.func
 };
 
 export default MovieList;
