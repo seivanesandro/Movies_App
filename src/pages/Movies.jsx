@@ -13,7 +13,7 @@ import AddFavourite from '../components/favouritComponent/AddFavorit';
 import RemoveFavourites from '../components/favouritComponent/RemoveFavorite';
 
 const apiKey = process.env.REACT_APP_API_KEY;
-const apiUrl = process.env.REACT_APP_API_URL;
+//const apiUrl = process.env.REACT_APP_API_URL;
 
 const ContainerLoading = styled.div`
     display: flex;
@@ -52,7 +52,7 @@ const Movies = () => {
     const getMoviesRequest =
         async searchValue => {
             try {
-                const url = `${apiUrl}?apikey=${apiKey}&s=${searchValue}`;
+                const url = `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchValue}`;
 
                 const api = await fetch(url);
 
