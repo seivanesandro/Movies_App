@@ -6,7 +6,6 @@ import Movies from './pages/Movies';
 const App = () => {
     return (
         <div className="movie-app">
-            {/*add react router dom */}
             <Movies />
         </div>
     );

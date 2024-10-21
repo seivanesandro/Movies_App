@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const FavoritComponentDisable = styled.div`
@@ -27,7 +27,6 @@ const FavoritComponent = props => {
 };
 
 FavoritComponent.propTypes = {
-    onclick: PropTypes.func.isRequired
 };
 
 export default FavoritComponent;

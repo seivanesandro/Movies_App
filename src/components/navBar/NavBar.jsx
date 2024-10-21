@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 //import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import { HashLink } from 'react-router-hash-link';
 
 function OffcanvasExample({
     searchValue,
@@ -32,12 +33,21 @@ function OffcanvasExample({
                         fluid
                         className="container-fuild-witdh"
                     >
-                        <Navbar.Brand
-                            className="link-to-reset"
-                            to="/"
+                        <HashLink
+                            to="/#movies"
+                            smooth="true"
+                            style={{
+                                textDecoration:
+                                    'none'
+                            }}
                         >
-                            Favourite Movies
-                        </Navbar.Brand>
+                            <Navbar.Brand
+                                className="link-to-reset"
+                                to="/"
+                            >
+                                Favourite Movies
+                            </Navbar.Brand>
+                        </HashLink>
                         <Navbar.Toggle
                             style={{
                                 outline: 'none',

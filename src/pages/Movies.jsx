@@ -126,7 +126,7 @@ const Movies = () => {
     return (
         <>
             {/*list movies */}
-            <div className="mt-4 mb-4">
+            <div className="mt-4 mb-4" id='movies'>
                 <NavBar
                     placeholdertext="search movies..."
                     searchValue={searchValue}
@@ -142,8 +142,8 @@ const Movies = () => {
                 movies.length === 0 && (
                     <ContainerLoading className="container-loading">
                         <Loading
-                            speedborder={1}
-                            size={5}
+                            speedborder='1'
+                            size='5'
                         />
                         {movies && error && (
                             <p
